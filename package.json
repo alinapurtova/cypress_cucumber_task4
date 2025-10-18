@@ -5,7 +5,6 @@
   "scripts": {
     "cypress:open": "npx cypress open",
     "cypress:run": "npx cypress run",
-    "report": "node generate-report.js",
     "test:report": "npx cypress run && node generate-report.js"
   },
   "keywords": [],
