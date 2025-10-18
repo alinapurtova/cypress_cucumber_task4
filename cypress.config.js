@@ -7,6 +7,8 @@ module.exports = defineConfig({
   e2e: {
     projectId: "pwixkc",
     baseUrl: "https://telnyx.com",
+    defaultCommandTimeout: 8000,
+    pageLoadTimeout: 60000,
     specPattern: "cypress/e2e/features/**/*.feature",
     viewportWidth: 1280,
     viewportHeight: 800,

@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+             browser: chrome
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -25,7 +27,7 @@ jobs:
         run: npm ci
 
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --browser chrome
 
       - name: Generate Mochawesome Report
         run: npx mochawesome-merge reports/*.json > reports/report.json && npx mochawesome-report-generator reports/report.json -o reports/html

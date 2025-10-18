@@ -11,12 +11,12 @@ export default class Page {
     element().should('be.visible').clear().type(text, { delay: 10 });
   }
 
-  isUrlContains(text) {
-    cy.url().should('include', text);
+  isUrlContains(text, timeout = 10000) {
+    cy.url({ timeout }).should('include', text);
   }
 
-  isElementVisible(element) {
-    element().should('be.visible');
+  isElementVisible(element, timeout = 10000) {
+    element().should('be.visible', { timeout });
   }
 
   isElementNotVisible(element) {
