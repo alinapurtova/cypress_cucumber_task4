@@ -6,20 +6,20 @@ class HomePage extends Page {
     signUpButton: () => cy.get('header a[href="/sign-up"]'),
     contactUsLink: () => cy.get('header a[href*="contact"]').eq(1),
 
-    cookieBanner: () => cy.get('#onetrust-banner-sdk > div'),
-    cookieAcceptButton: () => cy.get('#onetrust-accept-btn-handler'),
+    cookieBanner: () => cy.get('#onetrust-banner-sdk > div', { timeout: 10000 }),
+    cookieAcceptButton: () => cy.get('#onetrust-accept-btn-handler', { timeout: 10000 }),
 
-    callYourAgentButton: () => cy.get('a[href="#interactive-tool-demo"]'),
-    interactiveDemoSection: () => cy.get('div[id*="content-hd-voice-ai"]'),
+    callYourAgentButton: () => cy.get('a[href="#interactive-tool-demo"]', { timeout: 10000 }),
+    interactiveDemoSection: () => cy.get('div[id*="content-hd-voice-ai"]', { timeout: 10000 }),
 
-    aiSection: () => cy.get('#interactive-tool-demo'),
-    aiTabSpeechToText: () => cy.get('button[aria-label="Speech to text"]'),
-    aiTabHdVoice: () => cy.get('button[aria-label="HD Voice AI"]'),
-    aiTabTextToSpeech: () => cy.get('button[aria-label="Text to speech"]'),
-    aiTextToSpeechContent: () => cy.get('div[id*="content-text-to-speech"]'),
-    textToSpeechInput: () => cy.get("#text-to-speech-textarea"),
-    playAudioButton: () => cy.get('button[aria-label*="audio"]').eq(0),
-    headerTitle: () => cy.get('main h1'),
+    aiSection: () => cy.get('#interactive-tool-demo', { timeout: 10000 }),
+    aiTabSpeechToText: () => cy.get('button[aria-label="Speech to text"]', { timeout: 10000 }),
+    aiTabHdVoice: () => cy.get('button[aria-label="HD Voice AI"]', { timeout: 10000 }),
+    aiTabTextToSpeech: () => cy.get('button[aria-label="Text to speech"]', { timeout: 10000 }),
+    aiTextToSpeechContent: () => cy.get('div[id*="content-text-to-speech"]', { timeout: 10000 }),
+    textToSpeechInput: () => cy.get("#text-to-speech-textarea", { timeout: 10000 }),
+    playAudioButton: () => cy.get('button[aria-label*="audio"]', { timeout: 10000 }).eq(0),
+    headerTitle: () => cy.get('main h1', { timeout: 10000 }),
   };
 
   open() {

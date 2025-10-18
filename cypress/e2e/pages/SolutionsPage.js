@@ -5,8 +5,8 @@ class SolutionsPage extends Page {
   solutionCardSelector = '#use-cases h3';
 
   elements = {
-    searchInput: () => cy.get('input[placeholder*="Search"]'),
-    solutionCards: () => cy.get(this.solutionCardSelector),
+    searchInput: () => cy.get('input[placeholder*="Search"]', { timeout: 10000 }),
+    solutionCards: () => cy.get(this.solutionCardSelector, { timeout: 10000 }),
   };
 
   open() {

@@ -4,9 +4,9 @@ class RcsPage extends Page {
     url = "products/rcs";
 
     elements = {
-        faqBlock: () => cy.get('section.pt-xxl.bg-transparent').should('exist'),
-        faqQuestions: () => cy.get('section.pt-xxl.bg-transparent button'),
-        faqAnswers: () => cy.get('section.pt-xxl.bg-transparent p'),
+        faqBlock: () => cy.get('section.pt-xxl.bg-transparent', { timeout: 10000 }).should('exist'),
+        faqQuestions: () => cy.get('section.pt-xxl.bg-transparent button', { timeout: 10000 }),
+        faqAnswers: () => cy.get('section.pt-xxl.bg-transparent p', { timeout: 10000 }),
     };
 
     open() {

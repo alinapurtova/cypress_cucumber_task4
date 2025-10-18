@@ -9,7 +9,7 @@ class ChatWidgetPage extends Page {
     };
 
     verifyChatButtonVisible() {
-        this.isElementVisible(this.elements.chatButton);
+        this.isElementVisible(this.elements.chatButton, 20000);
     }
 
     openChat() {

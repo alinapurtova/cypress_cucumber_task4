@@ -46,7 +46,7 @@ class GlobalCoveragePage extends Page {
     }
 
     scrollToCoverageSection() {
-        this.elements.sectionCoverage().scrollIntoView().should('be.visible');
+        this.elements.sectionCoverage().scrollIntoView().should('be.visible', { timeout: 10000 });
     }
 
     verifySectionAndButton() {

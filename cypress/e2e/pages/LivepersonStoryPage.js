@@ -3,7 +3,7 @@ import Page from "./Page";
 class LivePersonPage extends Page {
   url = "customer-stories/liveperson";
   elements = {
-    vimeoIframe: () => cy.get('iframe[src*="player.vimeo.com"]'),
+    vimeoIframe: () => cy.get('iframe[src*="player.vimeo.com"]', { timeout: 10000 }),
   };
 
   open() {

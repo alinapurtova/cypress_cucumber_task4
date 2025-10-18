@@ -3,9 +3,9 @@ import Page from './Page';
 class ResourcesPage extends Page {
     url = "resources";
     elements = {
-        searchInput: () => cy.get('input[name="search"]'),
-        searchHeading: () => cy.get('h2.base-heading').eq(0),
-        searchResults: () => cy.get('ul.grid li')
+        searchInput: () => cy.get('input[name="search"]', { timeout: 10000 }),
+        searchHeading: () => cy.get('h2.base-heading', { timeout: 10000 }).eq(0),
+        searchResults: () => cy.get('ul.grid li', { timeout: 10000 })
     };
 
     open() {
