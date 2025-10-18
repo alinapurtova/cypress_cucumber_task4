@@ -1,0 +1,53 @@
+name: Run Cypress Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests
+        run: npx cypress run
+
+      - name: Generate Mochawesome Report
+        run: npx mochawesome-merge reports/*.json > reports/report.json && npx mochawesome-report-generator reports/report.json -o reports/html
+
+      - name: Deploy report to gh-pages branch
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: reports/html
+          publish_branch: gh-pages
+          force_orphan: true
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-test-report
+          path: reports/html
+
+      - name: Add report link to summary
+        if: always()
+        run: |
+          echo "### Cypress Test Report" >> $GITHUB_STEP_SUMMARY
+          echo "[View the full report here](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/)" >> $GITHUB_STEP_SUMMARY
