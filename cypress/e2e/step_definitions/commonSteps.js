@@ -8,7 +8,7 @@ import resourcesPage from "../pages/ResourcesPage";
 import signUpPage from "../pages/SignUpPage";
 import solutionsPage from "../pages/SolutionsPage";
 
-Given('I open the {string} page', (pageName) => {
+Given('I am on the {string} page', (pageName) => {
   const pages = {
     'Home': homePage,
     'Sign Up': signUpPage,
@@ -21,7 +21,7 @@ Given('I open the {string} page', (pageName) => {
   pages[pageName].open();
 });
 
-Then('the URL should contain {string}', (text) => {
+Then('I should see the {string} in the URL', (text) => {
   homePage.isUrlContains(text);
 });
 
@@ -38,6 +38,6 @@ When('I click on the {string} header link', (linkName) => {
   homePage.clickHeaderLink(linkName);
 });
 
-Then('the header should display {string}', (header) => {
+Then('I should see the {string} header', (header) => {
   homePage.getHeaderTitleText().should('eq', header);
 });

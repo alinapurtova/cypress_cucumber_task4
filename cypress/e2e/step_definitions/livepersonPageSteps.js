@@ -10,6 +10,6 @@ When("I click on the video iframe", () => {
   livepersonStoryPage.clickVideoPlayer();
 });
 
-Then("the video player should respond to the click and remain visible", () => {
+Then("I should see the video player respond to the click and remain visible", () => {
   livepersonStoryPage.verifyVideoPlayerVisible();
 });

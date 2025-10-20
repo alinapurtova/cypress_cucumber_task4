@@ -10,7 +10,7 @@ When('I click the chat button', () => {
     chatWidgetPage.openChat();
 });
 
-Then('the chat widget should open with a visible text input field', () => {
+Then('I should see the chat widget open with a text input field', () => {
     chatWidgetPage.isElementVisible(chatWidgetPage.elements.chatInput);
 });
 
@@ -22,6 +22,6 @@ When('I click the close icon', () => {
     chatWidgetPage.closeChat();
 });
 
-Then('the chat widget should close and disappear from view', () => {
+Then('I should not see the chat widget window', () => {
     chatWidgetPage.elements.chatWindow().should('not.be.visible');
 });

@@ -12,7 +12,7 @@ When('I click the "Accept cookie" button', () => {
   homePage.acceptCookies();
 });
 
-Then("the cookie banner should disappear", () => {
+Then("I should not see the cookie banner", () => {
   homePage.verifyBannerNotVisible();
 });
 
@@ -22,7 +22,7 @@ When('I click the "Call your agent" button', () => {
   homePage.clickCallYourAgentButton();
 });
 
-Then('the page autoscroll to the "interactive-tool-demo" section should be visible on the screen', () => {
+Then('I should see the page autoscroll to the "interactive-tool-demo" section', () => {
   homePage.verifyInteractiveDemoVisible();
 });
 
@@ -41,7 +41,13 @@ When('I click on the “Text to Speech” tab', () => {
   homePage.clickElement(homePage.elements.aiTabTextToSpeech);
 });
 
-Then('the content should update to display the “Text to Speech” feature details', () => {
+Then('I should see the content update to display the “Text to Speech” feature details', () => {
+  homePage.isElementVisible(homePage.elements.aiTextToSpeechContent);
+});
+
+Then('I should see “Text to Speech” tab in AI section is chosen', () => {
+  homePage.elements.aiSection().scrollIntoView();
+  homePage.clickElement(homePage.elements.aiTabTextToSpeech);
   homePage.isElementVisible(homePage.elements.aiTextToSpeechContent);
 });
 
@@ -50,7 +56,7 @@ When('I enter random text into the text input field', () => {
   homePage.typeTextToSpeech(randomText);
 });
 
-Then("the entered text should appear correctly in the input field without formatting errors", () => {
+Then("I should see the entered text appear correctly in the input field without formatting errors", () => {
   homePage.elements.textToSpeechInput().should("have.value", randomText);
 });
 
@@ -58,6 +64,6 @@ When('I click the “Play Audio” button', () => {
   homePage.playAudio();
 });
 
-Then("the audio playback should start successfully", () => {
+Then("I should see the audio playback start successfully", () => {
   homePage.elements.playAudioButton().should("have.attr", "aria-label", "Stop audio");
 });

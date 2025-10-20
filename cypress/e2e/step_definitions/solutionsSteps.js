@@ -6,6 +6,6 @@ When('I enter {string} into the search field and press Enter', (keyword) => {
   solutionsPage.enterKeyword(keyword);
 });
 
-Then('all visible solution titles should contain {string}', (keyword) => {
+Then('I should see all visible solution titles with {string}', (keyword) => {
   solutionsPage.verifyResultsContainKeyword(keyword);
 });

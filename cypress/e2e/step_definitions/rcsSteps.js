@@ -10,6 +10,6 @@ When("I click on each available FAQ question", () => {
   rcsPage.clickAllFaqQuestionsAndVerifyAnswers();
 });
 
-Then("each corresponding FAQ answer should become visible below its question", () => {
+Then("I should see each corresponding FAQ answer become visible below its question", () => {
   rcsPage.verifyFaqQuestionsVisible();
 });

@@ -30,14 +30,14 @@ jobs:
         run: npx cypress run --browser chrome
 
       - name: Generate Mochawesome Report
-        run: npx mochawesome-merge reports/*.json > reports/report.json && npx mochawesome-report-generator reports/report.json -o reports/html
+        run: npx mochawesome-merge reports/json/*.json > reports/json/report.json && npx mochawesome-report-generator cypress/reports/json/report.json -o cypress/reports/html
 
       - name: Deploy report to gh-pages branch
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: reports/html
+          publish_dir: cypress/reports/html
           publish_branch: gh-pages
           force_orphan: true
 
@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cypress-test-report
-          path: reports/html
+          path: cypress/reports/html
 
       - name: Add report link to summary
         if: always()

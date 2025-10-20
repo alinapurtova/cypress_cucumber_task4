@@ -42,7 +42,7 @@ Then('I should see an error message under the Company Email field', () => {
   globalCoveragePage.verifyEmailError();
 });
 
-Then('the form should remain visible for correction', () => {
+Then('I should see the form remains visible for correction', () => {
   globalCoveragePage.verifyFormVisible();
 });
 
@@ -59,6 +59,6 @@ When('I filter the table by {string}', (country) => {
   globalCoveragePage.filterByCountry(country);
 });
 
-Then('the table should contain only 1 row with data for {string}', (country) => {
+Then('I should see only one row with data for {string} should be displayed', (country) => {
   globalCoveragePage.verifyFilteredTable(country);
 });

@@ -22,8 +22,17 @@ class SolutionsPage extends Page {
   }
 
   enterKeyword(keyword) {
-    this.elements.searchInput().as('search').clear();
-    cy.get('@search').should('not.be.disabled').type(`${keyword}{enter}`);
+    this.elements.searchInput()
+      .should('exist')
+      .should('be.visible')
+      .should('not.be.disabled')
+      .clear({ force: true });
+      
+    this.elements.searchInput()
+      .should('exist')
+      .should('be.visible')
+      .should('not.be.disabled')
+      .type(`${keyword}{enter}`, { force: true });
   }
 
   verifyResultsContainKeyword(keyword) {

@@ -2,6 +2,8 @@ const { defineConfig } = require("cypress");
 const { addCucumberPreprocessorPlugin } = require("@badeball/cypress-cucumber-preprocessor");
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
 const esbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild");
+const { merge } = require("mochawesome-merge");
+const marge = require("mochawesome-report-generator");
 
 module.exports = defineConfig({
   e2e: {
@@ -16,9 +18,9 @@ module.exports = defineConfig({
     video: false,
     reporter: 'mochawesome',
     reporterOptions: {
-      reportDir: 'reports',
+      reportDir: "cypress/reports/json",
       overwrite: false,
-      html: true,
+      html: false,
       charts: true,
       reportPageTitle: 'Cypress Report',
       embeddedScreenshots: true,
@@ -32,18 +34,11 @@ module.exports = defineConfig({
       })
       );
 
-      on("after:run", async (results) => {
+      on("after:run", async () => {
         try {
-          const jsonReport = await merge({
-            files: ["reports/*.json"],
-          });
-
-          await marge.create(jsonReport, {
-            reportDir: "reports",
-            inlineAssets: true,
-          });
-
-          console.log("Mochawesome report created successfully!");
+          const jsonReport = await merge({ files: ["cypress/reports/json/*.json"] });
+          await marge.create(jsonReport, { reportDir: "cypress/reports/html", inlineAssets: true });
+          console.log("Mochawesome HTML report created in cypress/reports/html");
         } catch (err) {
           console.error("Error generating mochawesome report:", err);
         }
