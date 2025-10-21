@@ -41,15 +41,8 @@ jobs:
           publish_branch: gh-pages
           force_orphan: true
 
-      - name: Upload HTML report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-test-report
-          path: cypress/reports/html
-
       - name: Add report link to summary
         if: always()
         run: |
           echo "### Cypress Test Report" >> $GITHUB_STEP_SUMMARY
-          echo "[View the full report here](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/)" >> $GITHUB_STEP_SUMMARY
+          echo "[View the full report here](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/mochawesome.html)" >> $GITHUB_STEP_SUMMARY
