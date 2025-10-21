@@ -49,10 +49,11 @@ npm run test:report
 ### HomePage
 | Test ID    | Description                                                                                     |
 | ---------- | ------------------------------------------------------------------------------------------------|
-| **TC-001** | Verify user can navigate to the Pricing page from the header                                     |
-| **TC-004** | Verify cookie banner appears and can be accepted                                               |
-| **TC-008** | Verify "Call your agent" button scrolls to the interactive tool demo section                     |
-| **TC-009** | Verify that the “Text to Speech” feature works correctly with valid data                         |
+| **TC-001** | Verify user can navigate to the Pricing page from the header                                    |
+| **TC-004** | Verify cookie banner appears and can be accepted                                                |
+| **TC-008** | Verify "Call your agent" button scrolls to the interactive tool demo section                    |
+| **TC-009** | Verify that the “Text to Speech” tab works correctly                                            |
+| **TC-016** | Verify that the “Text to Speech” audio can be played                                            |
 
 ### Sign Up form
 | Test ID    | Description                                                                                     |
@@ -63,12 +64,12 @@ npm run test:report
 ### Contact Us form
 | Test ID    | Description                                                                                     |
 | ---------- | ------------------------------------------------------------------------------------------------|
-| **TC-005** | Verify the Contact Us form is visible and functional                                           |
+| **TC-005** | Verify the Contact Us form is visible                                                           |
 
 ### Resources
 | Test ID    | Description                                                                                     |
 | ---------- | ------------------------------------------------------------------------------------------------|
-| **TC-006** | Verify search bar returns results for a keyword on the Resources page                           |
+| **TC-006** | Verify search bar returns results for a keyword                                                 |
 
 ### Chat Widget
 | Test ID    | Description                                                                                     |
