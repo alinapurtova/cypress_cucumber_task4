@@ -29,9 +29,6 @@ jobs:
       - name: Run Cypress tests
         run: npx cypress run --browser chrome
 
-      - name: Generate Mochawesome Report
-        run: npx mochawesome-merge reports/json/*.json > reports/json/report.json && npx mochawesome-report-generator cypress/reports/json/report.json -o cypress/reports/html
-
       - name: Deploy report to gh-pages branch
         if: always()
         uses: peaceiris/actions-gh-pages@v4
