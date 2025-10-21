@@ -22,7 +22,7 @@ Before running the tests, make sure you have the following installed:
 
 **Clone the repository:**
 ```bash
-git clone https://github.com/alinapurtova/cypress_task3.git
+git clone https://github.com/alinapurtova/cypress_cucumber_task4.git
 ```
 **Setup**
 ```bash
