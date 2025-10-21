@@ -1,4 +1,4 @@
-# Telnyx Cypress Tests for Task 3
+# Telnyx Cypress+Cucumber Tests for Task 4
 
 ## Summary  
 This repository contains **15 automated end-to-end tests** for the [Telnyx](https://telnyx.com) website, written in **Cypress+Cucumber** using the **POM** pattern.  
