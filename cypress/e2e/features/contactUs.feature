@@ -1,6 +1,6 @@
 Feature: Contact Us form
 
-  Scenario: TC-005 Verify the Contact Us form is visible and functional
+  Scenario: TC-005 Verify the Contact Us form is visible
     Given I am on the "Home" page
     When I click on the "Contact Us" header link
     Then I should see the "/contact-us" in the URL
